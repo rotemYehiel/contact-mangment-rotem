@@ -1,3 +1,4 @@
+import e from 'express';
 import UserService from '../services/UserService';
 
 export function loadUser(userCredentials = null) {
@@ -16,10 +17,12 @@ export function logOut() {
 export function signUp(newUser) {
     return async () => {
         const res = await UserService.signUp(newUser);
-        const numOfChanges = res.rowsAffected;
-        const id = res.id;
-        console.log("res on action:", res)
-        // return res
-        return numOfChanges;
+        if (res.rowsAffected) {
+            const numOfChanges = res.rowsAffected;
+            const id = res.id;
+            return numOfChanges;
+        } else {
+            return 'cant signup...'
+        }
     }
 }

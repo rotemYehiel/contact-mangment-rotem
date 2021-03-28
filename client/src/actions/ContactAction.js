@@ -7,7 +7,6 @@ export function loadCotnacts(userId, filterBy = null) {
         return contacts
     }
 }
-//
 
 export function loadContact(userId, id) {
     return async dispatch => {
