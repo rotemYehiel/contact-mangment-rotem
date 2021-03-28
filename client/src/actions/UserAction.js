@@ -17,7 +17,7 @@ export function logOut() {
 export function signUp(newUser) {
     return async () => {
         const res = await UserService.signUp(newUser);
-        if (res.rowsAffected) {
+        if (res) {
             const numOfChanges = res.rowsAffected;
             const id = res.id;
             return numOfChanges;
