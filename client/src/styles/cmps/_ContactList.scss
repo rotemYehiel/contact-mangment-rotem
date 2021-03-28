@@ -1,0 +1,19 @@
+.contact-list-cmp {
+    margin-top: 0;
+    @include clean-list;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .contact {
+        margin: 0.5rem;
+    }
+}
+
+@include for-mobile-layout {
+    .contact-list {
+        .contact {
+            width: 100%;
+        }
+    }
+}

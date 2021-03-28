@@ -1,0 +1,23 @@
+.main-header {
+    height: 5vh;
+    width: 100%;
+    margin-bottom: 2vh;
+    .user-sec {
+        height: 100%;
+        padding: 0 20vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $clr1;
+        h1 {
+            color: $clr2;
+        }
+    }
+}
+
+@include for-mobile-layout {
+    .main-header {
+        height: 8vh;
+    }
+}

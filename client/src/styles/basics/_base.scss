@@ -1,0 +1,112 @@
+                * {
+                    box-sizing: border-box;
+                }
+                
+                body {
+                    margin: 0;
+                    font-size: 16px;
+                    font-family: Roboto-Regular, sans-serif;
+                    color: $clr7;
+                    background-color: $clr4;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                }
+                
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                button,
+                .buttons {
+                    cursor: pointer;
+                    &:focus {
+                        outline: 0;
+                    }
+                    font-size: 0.8rem;
+                    border-radius: 0.25rem;
+                    border: none;
+                    background-color: $clr3;
+                    color:$clr8;
+                    padding: 0.5rem 0.8rem;
+                    &:hover {
+                        background-color: darken($color: $clr3, $amount: 10);
+                    }
+                }
+                
+                ////Fixed Elements 
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+                
+                ul {
+                    padding: 0;
+                    margin: 0;
+                }
+                
+                input {
+                    padding: 0.25rem;
+                    padding-left: 0.25rem;
+                    border-radius: 0.25rem;
+                    border: 1px solid darken($color: $clr2, $amount: 12);
+                }
+                
+                // .page {
+                //     margin: 0 20vw;
+                //     padding: 2vh 0;
+                //     min-height: 95vh;
+                // }
+                // .page-header {
+                //     margin-bottom: 0.5rem;
+                // }
+                .icon-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    border-radius: 50%;
+                    font-size: 0.8rem;
+                    margin: 0;
+                    padding: 0.8rem;
+                    background-color: $clr3;
+                    color: #1d1f23;
+                    &:hover {
+                        background-color: darken($color: $clr3, $amount: 10);
+                    }
+                }
+                
+                .card-on-feed {
+                    padding: 1rem;
+                    border: 0.1rem solid transparent;
+                    border-radius: 0.25rem;
+                    padding: 0.6rem;
+                    background-color: $clr2;
+                    color: $clr7;
+                    margin: 0.5vh 0 0 0;
+                    display: flex;
+                    align-items: flex-start;
+                    p {
+                        margin: 0.25rem 0;
+                        span {
+                            margin-right: 0.25rem;
+                        }
+                    }
+                }
+                
+                .App {
+                    width: 100%;
+                    @include for-wide-layout {
+                        max-width: $break-wide;
+                    }
+                    @include for-narrow-layout {
+                        max-width: $break-narrow;
+                    }
+                    @include for-mobile-layout {
+                        max-width: $break-mobile;
+                    }
+                }

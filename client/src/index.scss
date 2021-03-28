@@ -1,0 +1,23 @@
+/* SETUP*/
+
+@import './styles/setup/typography';
+@import './styles/setup/variables';
+@import './styles/setup/mixins';
+
+/* BASICS*/
+
+@import './styles/basics/base';
+
+/* PAGES */
+
+@import './styles/pages/HomePage.scss';
+@import './styles/pages/EditContact.scss';
+
+/* CMPS */
+
+@import './styles/cmps/_Login.scss';
+@import './styles/cmps/_MainHeader.scss';
+@import './styles/cmps/_ContactList.scss';
+@import './styles/cmps/_ContactPreview.scss';
+
+/* DEFAULTS */

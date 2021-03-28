@@ -1,0 +1,32 @@
+.contact-preview-cmp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $clr2;
+    color: $clr7;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    .contact-name {
+        margin-bottom: 1rem
+    }
+    .details-sec {
+        margin-bottom: 1rem;
+        ul {
+            @include clean-list;
+        }
+        .last-update {
+            color: lighten($color: $clr7, $amount: 30);
+        }
+    }
+    .buttons-sec {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    &:hover {
+        background-color: darken($color: $clr3, $amount: 50);
+        color: $clr2;
+    }
+}
