@@ -15,10 +15,11 @@ const login = async (request, response) => {
 }
 
 const signUp = async (request, response) => {
-    const credentials = {
-        UserName: request.body.name,
-        Password: request.body.password
-    };
+    const credentials = { ...request.body };
+    // const credentials = {
+    //     UserName: request.body.name,
+    //     Password: request.body.password
+    // };
     userService.signUp(credentials).then(result => {
         response.status(201).json(result);
     })
