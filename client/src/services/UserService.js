@@ -16,7 +16,6 @@ const logOut = () => {
 const signUp = async (credentials) => {
     return await axios.post(`${baseUrl}addUser`, credentials)
         .then(res => {
-            console.log("res:", res)
             return res.data
         }).catch((error) => {
             console.log("cant sign Up:", error)

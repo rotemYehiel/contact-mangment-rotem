@@ -16,10 +16,10 @@ export function logOut() {
 export function signUp(newUser) {
     return async () => {
         const res = await UserService.signUp(newUser);
+        const numOfChanges = res.rowsAffected;
+        const id = res.id;
         console.log("res on action:", res)
-        // const numOfChanges = res.rowsAffected;
-        // const id = res.id;
-        return res
-        // return numOfChanges;
+        // return res
+        return numOfChanges;
     }
 }
