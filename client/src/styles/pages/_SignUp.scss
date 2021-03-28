@@ -1,19 +1,18 @@
-.login-cmp {
+.sign-up-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
     form {
         display: flex;
         flex-direction: column;
+        width: fit-content;
         input {
             margin-bottom: 1rem;
         }
         button {
-            align-self: center;
             width: fit-content;
-            margin-bottom: 1rem
+            margin: 0.5rem 0;
+            align-self: center;
         }
-        ;
     }
 }

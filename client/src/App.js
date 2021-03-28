@@ -7,6 +7,7 @@ import { loadUser } from './actions/UserAction';
 import HomePage from './pages/HomePage';
 import EditContact from './pages/EditContact';
 import MainHeader from './cmps/MainHeader';
+import SignUp from './pages/SignUp';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <main>
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/SignUp" component={SignUp} />
           <Route path="/EditContact" exact component={EditContact} />
           <Route path="/EditContact/:id" component={EditContact} />
         </Switch>

@@ -37,7 +37,17 @@ const HomePage = (props) => {
                     </Link>
                     { (contacts) ? <ContactList contacts={contacts} userId={loggedInUser['Id']} /> : ''}
                 </div>
-            ) : <Login />
+            ) :
+                (
+                    <div className="user-un-logged">
+                        <Login />
+                        <h2 className="page-header text">New arround?
+                        <span className="sign-up">
+                                <Link to={'/SignUp'}>  Sign up now</Link>
+                            </span>
+                        </h2>
+                    </div>
+                )
             }
         </div >
     )

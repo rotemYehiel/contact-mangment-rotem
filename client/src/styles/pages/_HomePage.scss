@@ -46,6 +46,17 @@
             }
         }
     }
+    .user-un-logged {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .sign-up {
+            color: $clr5;
+            &:hover {
+                color: darken($color: $clr5, $amount: 30);
+            }
+        }
+    }
 }
 
 @include for-mobile-layout {

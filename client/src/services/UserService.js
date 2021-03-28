@@ -12,14 +12,24 @@ const getUser = (credentials) => {
 const logOut = () => {
     localStorage.removeItem('logged user');
 }
+
+const signUp = async (credentials) => {
+    return await axios.post(`${baseUrl}addUser`, credentials)
+        .then(res => {
+            return res.data
+        }).catch((error) => {
+            console.log("cant sign Up:", error)
+        })
+}
 const userService = {
     getUser,
-    logOut
+    logOut,
+    signUp
 }
 export default userService;
 
 const _login = async (credentials) => {
-    const currUser = checkIsUserLoggedin();
+    const currUser = _checkIsUserLoggedin();
     if (currUser) {
         return currUser
     } else {
@@ -34,7 +44,7 @@ const _login = async (credentials) => {
     }
 }
 
-const checkIsUserLoggedin = () => {
+const _checkIsUserLoggedin = () => {
     return JSON.parse(localStorage.getItem('logged user'));
 }
 

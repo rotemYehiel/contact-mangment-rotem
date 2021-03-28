@@ -15,7 +15,9 @@ export function logOut() {
 }
 export function signUp(newUser) {
     return async dispatch => {
-        const loggedInUser = await UserService.signUp(newUser);
-        dispatch({ type: 'SET_USER', loggedInUser })
+        const res = await UserService.signUp(newUser);
+        const numOfChanges = res.rowsAffected;
+        // const id = res.id;
+        return numOfChanges;
     }
 }
