@@ -1,14 +1,15 @@
 const userService = require('./user.service');
 
 const login = async (request, response) => {
+    const credentials = { ...request.body };
     // const credentials = {
     //     UserName: request.body['UserName'],
     //     Password: request.body['Password']
     // };
-    const credentials = {
-        UserName: request.body.name,
-        Password: request.body.password
-    };
+    // const credentials = {
+    //     UserName: request.body.name,
+    //     Password: request.body.password
+    // };
     userService.login(credentials).then(result => {
         response.status(200).json(result);
     })
