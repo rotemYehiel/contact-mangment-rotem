@@ -1,7 +1,6 @@
 import ContactService from '../services/ContactService'
 
 export function loadCotnacts(userId, filterBy = null) {
-    console.log("userId:", userId, ' filterBy:', filterBy)
     return async dispatch => {
         const contacts = await ContactService.getContacts(userId, filterBy);
         dispatch({ type: 'SET_CONTACTS', contacts })
