@@ -14,10 +14,11 @@ export function logOut() {
     }
 }
 export function signUp(newUser) {
-    return async dispatch => {
+    return async () => {
         const res = await UserService.signUp(newUser);
-        const numOfChanges = res.rowsAffected;
+        // const numOfChanges = res.rowsAffected;
         // const id = res.id;
-        return numOfChanges;
+        return res
+        // return numOfChanges;
     }
 }
