@@ -36,7 +36,7 @@ const Login = () => {
                 <input
                     autoComplete="on"
                     type="text"
-                    placeholder="Eter your name"
+                    placeholder="Enter your name"
                     name="userName"
                     value={userName}
                     onChange={(ev) => setUserName(ev.target.value)}
