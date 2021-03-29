@@ -33,7 +33,7 @@ const _login = async (credentials) => {
     if (currUser) {
         return currUser
     } else {
-        const user = await axios.post(`${baseUrl}`, credentials)
+        const user = await axios.post(`${baseUrl}login`, credentials)
             .then(res => {
                 return res.data
             }).catch((error) => {
