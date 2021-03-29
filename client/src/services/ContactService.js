@@ -2,7 +2,12 @@ import axios from 'axios';
 // const baseUrl = (process.env.NODE_ENV !== 'development') ?
 //   'https://contact-manager-rotem.herokuapp.com/api/contact/' :
 //   '//localhost:8090/api/contact/';
-const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/contact/';
+
+// const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/contact/';
+
+const baseUrl = 'https://contact-manegment.herokuapp.com/api/contact/';
+// const baseUrl = 'http://localhost:8000/api/contact/';
+
 
 const getContacts = async (userId, filterBy) => {
   const credentials = { userId, filterBy }

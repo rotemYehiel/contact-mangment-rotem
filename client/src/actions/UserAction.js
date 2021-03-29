@@ -16,13 +16,12 @@ export function logOut() {
 export function signUp(newUser) {
     return async () => {
         const res = await UserService.signUp(newUser);
-        return res
-        // if (res) {
-        //     const numOfChanges = res.rowsAffected;
-        //     const id = res.id;
-        //     return numOfChanges;
-        // } else {
-        //     return 'cant signup...'
-        // }
+        if (res) {
+            const numOfChanges = res.rowsAffected;
+            // const id = res.id;
+            return numOfChanges;
+        } else {
+            return 'can not signup...'
+        }
     }
 }

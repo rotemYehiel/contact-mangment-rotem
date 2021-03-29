@@ -4,14 +4,12 @@ const tableName = 'Contacts';
 const tableToConnect = 'Users';
 
 const getContacts = async (userId, filterBy) => {
-    console.log("here?")
-
     try {
         var pool = await sql.connect(config);
         if (filterBy) {
             const filterQuery = `AND c.ContactName like '${filterBy}%'`;
             let contacts = await pool.request().query(`SELECT c.* from ${tableName} as c inner join ${tableToConnect} as u on c.UserId=u.Id where c.UserId=${userId} ${filterQuery ? (filterQuery) : ''}`);
-            console.log("contacts.recordset:", contacts.recordset)
+            // console.log("contacts.recordset:", contacts.recordset)
 
             const newContacts = contacts.recordset.map(contact => {
                 contact['Address'] = _createAddressOb(contact['Address']);
@@ -29,7 +27,7 @@ const getContacts = async (userId, filterBy) => {
                 contact['ContactName'] = _createNameOb(contact['ContactName']);
                 return contact;
             })
-            console.log("newContacts:", newContacts)
+            // console.log("newContacts:", newContacts)
             return newContacts;
         }
     } catch (error) {

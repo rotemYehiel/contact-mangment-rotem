@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/user/';
-
+// const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/user/';
+const baseUrl = 'https://contact-manegment.herokuapp.com/api/user/';
+// const baseUrl = 'http://localhost:8000/api/user/';
 
 const getUser = (credentials) => {
     const user = JSON.parse(localStorage.getItem('logged user'));
@@ -15,6 +16,7 @@ const logOut = () => {
 const signUp = async (credentials) => {
     return await axios.post(`${baseUrl}addUser`, credentials)
         .then(res => {
+            console.log("res:", res)
             return res.data
         }).catch((error) => {
             console.log("cant sign Up:", error)

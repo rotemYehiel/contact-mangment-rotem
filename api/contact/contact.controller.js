@@ -1,7 +1,6 @@
 const contactService = require('./contact.service');
 
 const getContacts = async (request, response) => {
-    console.log("getContacts request:", request)
     const userId = request.query.userId;
     const filterBy = request.query.filterBy;
     contactService.getContacts(userId, filterBy).then(result => {
@@ -37,15 +36,15 @@ const deleteContact = async (request, response) => {
     })
 }
 
-const testPlease = async (request, response) => {
-    console.log("reutttt")
-    response.send('reutttt')
-}
+// const testPlease = async (request, response) => {
+//     console.log("reutttt")
+//     response.send('reutttt')
+// }
 module.exports = {
     getContacts,
     getContactById,
     addContact,
     updateContact,
     deleteContact,
-    testPlease
+    // testPlease
 }
