@@ -1,10 +1,4 @@
 import axios from 'axios';
-// const baseUrl = (process.env.NODE_ENV !== 'development') ?
-//   'https://contact-manager-rotem.herokuapp.com/api/contact/' :
-//   '//localhost:8090/api/contact/';
-
-// const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/contact/';
-
 const baseUrl = 'https://contact-manegment.herokuapp.com/api/contact/';
 // const baseUrl = 'http://localhost:8000/api/contact/';
 
@@ -51,29 +45,12 @@ function saveContact(userId, contact) {
   return (contact['Id'] ? _updateContact(userId, contact) : _addContcat(userId, contact));
 }
 
-function getEmptyContact() {
-  return {
-    _id: _makeId(),
-    name: '',
-    email: '',
-    phone: ''
-  }
-}
-
 const contactService = {
   getContacts,
   getContactById,
   deleteContact,
   saveContact,
-  getEmptyContact
 }
 export default contactService;
-function _makeId(length = 10) {
-  let txt = ''
-  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  for (let i = 0; i < length; i++) {
-    txt += possible.charAt(Math.floor(Math.random() * possible.length))
-  }
-  return txt
-}
+
 

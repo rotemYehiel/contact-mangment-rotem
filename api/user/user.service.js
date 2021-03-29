@@ -4,10 +4,8 @@ const tableName = '[dtisji7uyxch3r3].[dbo].[Users]'
 
 const login = async (credentials) => {
     try {
-        console.log("query:", `select * from ${tableName} where UserName='${credentials.name}' AND [Password]='${credentials.password}'`)
         var pool = await sql.connect(config);
         let user = await pool.request().query(`select * from ${tableName} where UserName='${credentials.name}' AND [Password]='${credentials.password}'`)
-        console.log("user on service:", user)
         return user.recordset[0];
     } catch (error) {
         console.log(error)
@@ -17,10 +15,8 @@ const login = async (credentials) => {
 const signUp = async (credentials) => {
     try {
         var pool = await sql.connect(config);
-        console.log("query:", `insert into ${tableName} (UserName, [Password]) values ('${credentials.name}','${credentials.password}'); SELECT SCOPE_IDENTITY() AS id`)
         let insertUser = await pool.request()
             .query(`insert into ${tableName} (UserName, [Password]) values ('${credentials.name}','${credentials.password}'); SELECT SCOPE_IDENTITY() AS id`);
-        console.log("insertUser:", insertUser)
         return {
             rowsAffected: insertUser.rowsAffected[0],
             id: insertUser.recordset[0].id

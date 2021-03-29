@@ -1,7 +1,9 @@
 const config = require('../../dbconfig');
 const sql = require('mssql');
-const tableName = 'Contacts';
-const tableToConnect = 'Users';
+const tableName = '[dtisji7uyxch3r3].[dbo].[Contacts]';
+const tableToConnect = '[dtisji7uyxch3r3].[dbo].[Users]';
+// const tableName = 'Contacts';
+// const tableToConnect = 'Users';
 
 const getContacts = async (userId, filterBy) => {
     try {
@@ -9,25 +11,19 @@ const getContacts = async (userId, filterBy) => {
         if (filterBy) {
             const filterQuery = `AND c.ContactName like '${filterBy}%'`;
             let contacts = await pool.request().query(`SELECT c.* from ${tableName} as c inner join ${tableToConnect} as u on c.UserId=u.Id where c.UserId=${userId} ${filterQuery ? (filterQuery) : ''}`);
-            // console.log("contacts.recordset:", contacts.recordset)
-
             const newContacts = contacts.recordset.map(contact => {
                 contact['Address'] = _createAddressOb(contact['Address']);
                 contact['ContactName'] = _createNameOb(contact['ContactName']);
                 return contact;
             })
-
             return newContacts;
         } else {
             let contacts = await pool.request().query(`SELECT c.* from ${tableName} as c inner join ${tableToConnect} as u on c.UserId=u.Id where c.UserId=${userId}`);
-            console.log("contacts.recordset:", contacts.recordset)
-
             const newContacts = contacts.recordset.map(contact => {
                 contact['Address'] = _createAddressOb(contact['Address']);
                 contact['ContactName'] = _createNameOb(contact['ContactName']);
                 return contact;
             })
-            // console.log("newContacts:", newContacts)
             return newContacts;
         }
     } catch (error) {
@@ -75,7 +71,7 @@ const updateContact = async (userId, contact) => {
         const address = _createAddressStr(contact['Address']);
         var pool = await sql.connect(config);
         let updateContact = await pool.request()
-            .query(`UPDATE ${tableName} SET ContactName='${name}',Phone='${contact['Phone']}',Email='${contact['Email']}',Address='${address}',UpdatedDate=GETDATE() WHERE Id='${contact['Id']}' and UserId='${userId}'`);
+            .query(`UPDATE ${tableName} SET ContactName='${name}',Phone='${contact['Phone']}',Email='${contact['Email']}',Address='${address}',UpdatedDate=GETDATE() WHERE Id='${contact['Id']}' AND UserId='${userId}'`);
         return { rowsAffected: updateContact.rowsAffected[0] };
     } catch (error) {
         console.log(error)
@@ -100,10 +96,8 @@ const _createAddressStr = (address) => {
         if (value !== null) return value;
         return `${value} ${keys[index]}`
     })
-    // let str = foundValues.join(" ,")
     let str = foundValues.join(",")
     return str
-    // return `${address['Street'] ? address['Street'] : null} ,${address['City'] ? address['City'] : null} ,${address['State'] ? address['State'] : null} ,${address['Postal Code']}`
 }
 const _createAddressOb = (addressStr) => {
     const arr = addressStr.split(',');

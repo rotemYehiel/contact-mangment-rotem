@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/user/';
 const baseUrl = 'https://contact-manegment.herokuapp.com/api/user/';
 // const baseUrl = 'http://localhost:8000/api/user/';
 
@@ -16,7 +15,6 @@ const logOut = () => {
 const signUp = async (credentials) => {
     return await axios.post(`${baseUrl}addUser`, credentials)
         .then(res => {
-            console.log("res:", res)
             return res.data
         }).catch((error) => {
             console.log("cant sign Up:", error)
@@ -30,24 +28,17 @@ const userService = {
 export default userService;
 
 const _login = async (credentials) => {
-    console.log("credentials:", credentials)
     const currUser = _checkIsUserLoggedin();
     if (currUser) {
-        console.log("currUser:", currUser)
         return currUser
     } else {
-        console.log("no currUser:", currUser)
-        const user = await axios.post(`${baseUrl}login`, credentials)
+        return await axios.post(`${baseUrl}login`, credentials)
             .then(res => {
-                console.log("res on service:", res);
                 if (res.data['Id']) localStorage.setItem('logged user', JSON.stringify(res.data));
                 return res.data
             }).catch((error) => {
                 console.log("cant login:", error)
             })
-        console.log("user:", user)
-        // if (user['Id']) localStorage.setItem('logged user', JSON.stringify(user));
-        return JSON.parse(localStorage.getItem('logged user'));
     }
 }
 

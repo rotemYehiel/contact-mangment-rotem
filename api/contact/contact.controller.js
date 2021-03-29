@@ -36,15 +36,10 @@ const deleteContact = async (request, response) => {
     })
 }
 
-// const testPlease = async (request, response) => {
-//     console.log("reutttt")
-//     response.send('reutttt')
-// }
 module.exports = {
     getContacts,
     getContactById,
     addContact,
     updateContact,
     deleteContact,
-    // testPlease
 }
