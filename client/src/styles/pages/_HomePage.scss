@@ -65,11 +65,12 @@
 
 @include for-mobile-layout {
     .home-page {
+        padding: 0 5vw;
         .user-logged {
             padding: 0 0vw;
             .filter {
                 align-self: center;
-                width: 80%;
+                width: 100%;
                 label {
                     margin-right: 1rem;
                 }

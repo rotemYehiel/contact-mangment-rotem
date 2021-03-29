@@ -24,7 +24,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="screen off"></div>
       <MainHeader loggedInUser={loggedInUser} />
       <main>
         <Switch>
