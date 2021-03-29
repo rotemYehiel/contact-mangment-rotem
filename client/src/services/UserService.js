@@ -31,8 +31,10 @@ const _login = async (credentials) => {
     console.log("credentials:", credentials)
     const currUser = _checkIsUserLoggedin();
     if (currUser) {
+        console.log("currUser:", currUser)
         return currUser
     } else {
+        console.log("no currUser:", currUser)
         const user = await axios.post(`${baseUrl}login`, credentials)
             .then(res => {
                 console.log("res on service:", res);
@@ -41,6 +43,7 @@ const _login = async (credentials) => {
             }).catch((error) => {
                 console.log("cant login:", error)
             })
+        console.log("user:", user)
         // if (user['Id']) localStorage.setItem('logged user', JSON.stringify(user));
         return JSON.parse(localStorage.getItem('logged user'));
     }
