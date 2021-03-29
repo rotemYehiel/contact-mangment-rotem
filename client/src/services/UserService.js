@@ -28,6 +28,7 @@ const userService = {
 export default userService;
 
 const _login = async (credentials) => {
+    console.log("credentials:", credentials)
     const currUser = _checkIsUserLoggedin();
     if (currUser) {
         return currUser
