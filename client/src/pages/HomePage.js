@@ -22,7 +22,11 @@ const HomePage = (props) => {
     }, [loggedInUser, dispatch])
 
     const onfilter = async (ev) => {
-        await dispatch(loadCotnacts(loggedInUser['Id'], ev.target.value))
+        if (!contacts.length) {
+            alert('No contacts to search for...');
+        } else {
+            await dispatch(loadCotnacts(loggedInUser['Id'], ev.target.value));
+        }
     }
     return (
         <div className="home-page">
@@ -35,7 +39,10 @@ const HomePage = (props) => {
                     <Link to={`/EditContact`} className="add-contact-btn buttons">
                         <span className="text">Add Contact</span>
                     </Link>
-                    { (contacts) ? <ContactList contacts={contacts} userId={loggedInUser['Id']} /> : ''}
+                    { (contacts) ? <ContactList contacts={contacts} userId={loggedInUser['Id']} /> : (
+                        <div>
+                            <p>no contacts to display</p>
+                        </div>)}
                 </div>
             ) :
                 (

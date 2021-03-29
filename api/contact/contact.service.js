@@ -2,8 +2,6 @@ const config = require('../../dbconfig');
 const sql = require('mssql');
 const tableName = '[dtisji7uyxch3r3].[dbo].[Contacts]';
 const tableToConnect = '[dtisji7uyxch3r3].[dbo].[Users]';
-// const tableName = 'Contacts';
-// const tableToConnect = 'Users';
 
 const getContacts = async (userId, filterBy) => {
     try {
@@ -52,7 +50,6 @@ const addContact = async (contact) => {
     try {
         const name = _createNameStr(contact['ContactName']);
         const address = _createAddressStr(contact['Address']);
-        console.log("address:", address)
         var pool = await sql.connect(config);
         let insertContact = await pool.request()
             .query(`insert into ${tableName} (ContactName, Phone, Email, Address,UserId ,UpdatedDate) values ('${name}','${contact['Phone']}','${contact['Email']}','${address}','${contact['UserId']}',GETDATE()); SELECT SCOPE_IDENTITY() AS id`);

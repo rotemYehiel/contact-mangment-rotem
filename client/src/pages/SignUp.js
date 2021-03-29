@@ -33,6 +33,7 @@ const SignUp = (props) => {
             <form onSubmit={(ev) => onSignUp(ev)}>
                 <label>Name: </label>
                 <input
+                    autoComplete="on"
                     type="text"
                     placeholder="Eter your name"
                     name="name"
@@ -41,6 +42,7 @@ const SignUp = (props) => {
                 />
                 <label>Password: </label>
                 <input
+                    autoComplete="on"
                     type="password"
                     placeholder="Enter your password"
                     name="password"
