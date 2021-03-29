@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { loadUser } from '../actions/UserAction';
@@ -21,8 +21,11 @@ const Login = () => {
         }
         const user = await dispatch(loadUser(userCredentials));
         if (!user) {
-            alert('Username or password incorrect')
-            resetForm();
+            setTimeout(() => {
+                alert('Name or password incorrect');
+                resetForm();
+            }, 3000);
+
         }
     }
     return (

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { deleteContact } from '../actions/ContactAction';
 
-
 const ContactPreview = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
