@@ -34,11 +34,13 @@ const _login = async (credentials) => {
     } else {
         const user = await axios.post(`${baseUrl}login`, credentials)
             .then(res => {
+                console.log("res on service:", res);
+                if (res.data['Id']) localStorage.setItem('logged user', JSON.stringify(res.data));
                 return res.data
             }).catch((error) => {
                 console.log("cant login:", error)
             })
-        if (user['Id']) localStorage.setItem('logged user', JSON.stringify(user));
+        // if (user['Id']) localStorage.setItem('logged user', JSON.stringify(user));
         return JSON.parse(localStorage.getItem('logged user'));
     }
 }
