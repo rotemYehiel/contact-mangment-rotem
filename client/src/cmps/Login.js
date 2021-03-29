@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { loadUser } from '../actions/UserAction';
@@ -19,8 +19,11 @@ const Login = () => {
             name: userName,
             password: password
         }
-        dispatch(loadUser(userCredentials));
-        resetForm();
+        const user = await dispatch(loadUser(userCredentials));
+        if (!user) {
+            alert('Username or password incorrect')
+            resetForm();
+        }
     }
     return (
         <section className="login-cmp">

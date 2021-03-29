@@ -3,7 +3,10 @@ import UserService from '../services/UserService';
 export function loadUser(userCredentials = null) {
     return async dispatch => {
         const loggedInUser = await UserService.getUser(userCredentials);
-        dispatch({ type: 'SET_USER', loggedInUser })
+        if (loggedInUser) {
+            dispatch({ type: 'SET_USER', loggedInUser });
+        }
+        return loggedInUser;
     }
 
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = 'https://contact-manegment.herokuapp.com/api/user/';
-// const baseUrl = 'http://localhost:8000/api/user/';
+// const baseUrl = 'https://contact-manegment.herokuapp.com/api/user/';
+const baseUrl = 'http://localhost:8000/api/user/';
 
 const getUser = (credentials) => {
     const user = JSON.parse(localStorage.getItem('logged user'));
