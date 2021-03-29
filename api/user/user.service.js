@@ -4,6 +4,7 @@ const tableName = '[dtisji7uyxch3r3].[dbo].[Users]'
 
 const login = async (credentials) => {
     try {
+        console.log("query:", `select * from ${tableName} where UserName='${credentials.name}' AND [Password]='${credentials.password}'`)
         var pool = await sql.connect(config);
         let user = await pool.request().query(`select * from ${tableName} where UserName='${credentials.name}' AND [Password]='${credentials.password}'`)
         return user.recordset[0];

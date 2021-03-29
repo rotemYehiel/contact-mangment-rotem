@@ -1,8 +1,10 @@
 const userService = require('./user.service');
 
 const login = async (request, response) => {
+    console.log("request login:", request)
     const credentials = { ...request.body };
     userService.login(credentials).then(result => {
+        console.log("result:", result)
         response.status(200).json(result);
     })
 }
