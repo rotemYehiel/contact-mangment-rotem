@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/user/';
-const baseUrl = 'https://localhost:8000/api/user/';
+const baseUrl = 'https://contact-manager-rotem.herokuapp.com/api/user/';
 
 
 const getUser = (credentials) => {
