@@ -34,7 +34,6 @@ const _login = async (credentials) => {
     } else {
         return await axios.post(`${baseUrl}login`, credentials)
             .then(res => {
-                console.log("res login:", res)
                 if (res.data['Id']) localStorage.setItem('logged user', JSON.stringify(res.data));
                 return res.data
             }).catch((error) => {

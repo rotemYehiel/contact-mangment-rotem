@@ -39,7 +39,7 @@ const HomePage = (props) => {
                     <Link to={`/EditContact`} className="add-contact-btn buttons">
                         <span className="text">Add Contact</span>
                     </Link>
-                    { (contacts) ? <ContactList contacts={contacts} userId={loggedInUser['Id']} /> : (
+                    { (contacts.length) ? <ContactList contacts={contacts} userId={loggedInUser['Id']} /> : (
                         <div>
                             <p>no contacts to display</p>
                         </div>)}
