@@ -1,4 +1,3 @@
-import e from 'express';
 import UserService from '../services/UserService';
 
 export function loadUser(userCredentials = null) {
